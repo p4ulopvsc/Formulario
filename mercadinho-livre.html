@@ -89,6 +89,13 @@
      	   width: 100px;
 	        height: 100px;
         }
+	.obrigatorio {
+		color: red;
+	}
+
+	.opicional {
+		color: green;
+	}
     </style>
 </head>
 <body>
@@ -105,47 +112,47 @@
     	</div>
     	
         <div>
-            <label for="name">Nome:</label>
+            <label for="name">Nome: <span class="obrigatorio">Obrigatorio</span></label>
             <input type="text" id="name" name="nome">
         </div>
 
         <div>
-            <label for="rua">Rua:</label>
+            <label for="rua">Rua: <span class="obrigatorio">Obrigatorio</span></label>
             <input type="text" id="rua" name="rua" value="Quadra XX Lote XX">
         </div>
 
         <div>
-            <label for="bairro">Bairro:</label>
+            <label for="bairro">Bairro: <span class="obrigatorio">Obrigatorio</span></label>
             <input type="text" id="bairro" name="bairro" value="Vila Bela">
         </div>
         
         <div>
-            <label for="cidade">Cidade:</label>
+            <label for="cidade">Cidade: <span class="obrigatorio">Obrigatorio</span></label>
             <input type="text" id="cidade" name="cidade" value="Serra Talhada-PE">
         </div>
 
         <div>
-            <label for="fone">Fone:</label>
+            <label for="fone">Fone: <span class="obrigatorio">Obrigatorio</span></label>
             <input type="text" id="fone" name="fone">
         </div>
         
         <div>
-            <label for="fone2">Fone:</label>
+            <label for="fone2">Fone: <span class="opicional">Opicional</span></label>
             <input type="text" id="fone2" name="fone2">
         </div>
 
         <div>
-            <label for="nascimento">Nascimento:</label>
+            <label for="nascimento">Nascimento: <span class="obrigatorio">Obrigatorio</span></label>
             <input type="text" id="nascimento" name="nascimento" value="XX/XX/XXXX">
         </div>
 
         <div>
-            <label for="estadoCivil">Estado Civil:</label>
+            <label for="estadoCivil">Estado Civil: <span class="obrigatorio">Obrigatorio</span></label>
             <input type="text" id="estadoCivil" name="estadoCivil">
         </div>
 
         <div>
-            <label for="email">E-MAIL:</label>
+            <label for="email">E-MAIL: <span class="opicional">Opicional</span></label>
             <input type="email" id="email" name="email">
         </div>
     </div>
