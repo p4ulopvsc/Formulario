@@ -23,16 +23,13 @@
     		font-weight: bold;
     		font-size: 35px;
     	}
-    	.label4 {
     	
-    	}
-    	   	
     	.label3 {
     		font-family: Arial, sans-serif;
     		margin-top: 20px; 
-    		margin-left: 10px;
+    		margin-left: 0px;
     		white-space: pre-line;
-    		display: block;
+    		
     		margin-bottom: 5px;
     		background: #D0D0D0;
     		color: #000;
@@ -78,8 +75,15 @@
  	   	width: 100%;
     		cursor: pointer;
         }
-        
-        .button2 {
+		
+		.button3 {
+			padding: 10px;
+    		border: none;
+    		border-radius: 5px;
+ 	   	background-color: #25D366;
+   	 	color: #FFFFFF;
+ 	   	width: 100%;
+    		cursor: pointer;
     		margin-bottom: 20px;
 		}
          .img {
@@ -106,7 +110,9 @@
     	<div class="coluna1">
     		<img class="img" src="jopcs.jpeg">
     		<label class="label2">Formulário</label> 
-    		<label class="label3">Obrigado pela preferência em escolher nosso serviço de criação de currículos! Caso tenham dúvidas ou necessitem de suporte durante o preenchimento, fiquem à vontade para entrar em contato. Estamos aqui para ajudar a impulsionar sua carreira. Preencham o formulário e deixem-nos trabalhar para destacar o melhor de vocês profissionalmente. Obrigado!
+    		<label style="display: block;" class="label3">Obrigado pela preferência em escolher nosso serviço de criação de currículos! Caso tenham dúvidas ou necessitem de suporte durante o preenchimento, fiquem à vontade para entrar em contato. 
+
+Estamos aqui para ajudar a impulsionar sua carreira. Preencham o formulário e deixem-nos trabalhar para destacar o melhor de vocês profissionalmente. Obrigado!
     		
  Contato: +55 87 8868-0008</label>
     	</div>
@@ -195,9 +201,9 @@ Profissional e pessoal, bem como o crescimento da mesma.</textarea>
         </div>
     </div>
 
-    <button class="button2" type="button" onclick="downloadTxtFile()">Baixar</button>
+	<button class="button3" type="button" onclick="compartilharWhatsApp()">Compartilhar no WhatsApp</button>
     <button class="button2" type="button" onclick="copyToClipboard()">Copiar para a Área de Transferência</button>
-    <label class="label3">Aperte no botão de copia e cole no WhatsApp da empresa que faremos o currículo, caso baixou envie o arquivo para a empresa.</label>
+    <label class="label3">Aperte no botão de Compartilhar no WhatsApp que faremos o currículo, ou aperte no botão de copia e cole no WhatsApp.</label>
 
 
     <script>
@@ -217,37 +223,7 @@ Profissional e pessoal, bem como o crescimento da mesma.</textarea>
             newInput.name = "formacao[]";
             newInput.value = "Curso: ";
             container.appendChild(newInput);
-        }
-                
-        function downloadTxtFile() {
-    var formData = document.getElementById("myForm");
-    var data = new FormData(formData);
-
-    var textToSave = "Nome: " + data.get('nome') + "\nDados:" +
-        (data.get('rua') ? "\nRua: " + data.get('rua') : "") +
-        (data.get('bairro') ? "\nBairro: " + data.get('bairro') : "") +
-        (data.get('cidade') ? "\nCidade: " + data.get('cidade') : "") +
-        (data.get('fone') ? "\nFone: " + data.get('fone') : "") +
-        (data.get('fone2') ? "\nFone: " + data.get('fone2') : "") +
-        (data.get('nascimento') ? "\nNascimento: " + data.get('nascimento') : "") +
-        (data.get('estadoCivil') ? "\nEstado Civil: " + data.get('estadoCivil') : "") +
-        (data.get('email') ? "\nE-MAIL: " + data.get('email') : "") +
-        "\n\nDocumentos todos em mãos!" +
-        (data.getAll('formacao[]').filter(Boolean).length > 0 ? "\n\nFormação:\n" + data.getAll('formacao[]').join('\n') : "") +
-        (data.getAll('experiencias[]').filter(Boolean).length > 0 ? "\n\nExperiência:\n" + data.getAll('experiencias[]').join('\n') : "") +
-        (data.get('objetivos') ? "\n\nObjetivos:\n" + data.get('objetivos') : "") +
-        (data.get('caracteristicas') ? "\n\nCaracterísticas Pessoais:\n" + data.get('caracteristicas') : "");
-
-    var blob = new Blob([textToSave], { type: "text/plain" });
-    var link = document.createElement("a");
-    link.download = "formulario.txt";
-    link.href = window.URL.createObjectURL(blob);
-    link.style.display = "none";
-    document.body.appendChild(link);
-
-    link.click();
-    document.body.removeChild(link);
-}
+        }              
 
 function copyToClipboard() {
     var formData = document.getElementById("myForm");
@@ -277,7 +253,32 @@ function copyToClipboard() {
 
     alert("Texto copiado para a Área de Transferência!");
 }
-    </script>
 
+function compartilharWhatsApp() {
+        var formData = document.getElementById("myForm");
+        var data = new FormData(formData);
+
+        var mensagemWhatsApp = "Nome: " + data.get('nome') + "\nDados:" +
+            (data.get('rua') ? "\nRua: " + data.get('rua') : "") +
+            (data.get('bairro') ? "\nBairro: " + data.get('bairro') : "") +
+            (data.get('cidade') ? "\nCidade: " + data.get('cidade') : "") +
+            (data.get('fone') ? "\nFone: " + data.get('fone') : "") +
+            (data.get('fone2') ? "\nFone: " + data.get('fone2') : "") +
+            (data.get('nascimento') ? "\nNascimento: " + data.get('nascimento') : "") +
+            (data.get('estadoCivil') ? "\nEstado Civil: " + data.get('estadoCivil') : "") +
+            (data.get('email') ? "\nE-MAIL: " + data.get('email') : "") +
+            "\n\nDocumentos todos em mãos!" +
+            (data.getAll('formacao[]').filter(Boolean).length > 0 ? "\n\nFormação:\n" + data.getAll('formacao[]').join('\n') : "") +
+            (data.getAll('experiencias[]').filter(Boolean).length > 0 ? "\n\nExperiência:\n" + data.getAll('experiencias[]').join('\n') : "") +
+            (data.get('objetivos') ? "\n\nObjetivos:\n" + data.get('objetivos') : "") +
+            (data.get('caracteristicas') ? "\n\nCaracterísticas Pessoais:\n" + data.get('caracteristicas') : "");
+
+        var mensagemEncoded = encodeURIComponent(mensagemWhatsApp);
+        var linkWhatsApp = "https://wa.me/+55 87 8868-0008?text=" + mensagemEncoded;
+
+        window.open(linkWhatsApp, '_blank');
+    }
+
+    </script>
 </body>
 </html>
