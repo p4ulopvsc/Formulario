@@ -18,7 +18,7 @@
     	
     	.label2 {
     		font-family: Arial, sans-serif; 
-    		margin-left: 30px;  		
+    		margin-left: 10px;  		
     		margin-top: 35px;
     		font-weight: bold;
     		font-size: 35px;
@@ -28,8 +28,7 @@
     		font-family: Arial, sans-serif;
     		margin-top: 20px; 
     		margin-left: 0px;
-    		white-space: pre-line;
-    		
+    		white-space: pre-line;   		
     		margin-bottom: 5px;
     		background: #D0D0D0;
     		color: #000;
@@ -59,11 +58,11 @@
     	border-radius: 10px;
 	}
 
-        textarea {
-        	
+        textarea {     	
             width: 100%;
             height: 200px;
             box-sizing: border-box;
+            resize: none;
         }
         
         .button2, button {
@@ -84,7 +83,7 @@
    	 	color: #FFFFFF;
  	   	width: 100%;
     		cursor: pointer;
-    		margin-bottom: 20px;
+    		
 		}
          .img {
   	      margin-left: 10px;
@@ -123,19 +122,27 @@ Estamos aqui para ajudar a impulsionar sua carreira. Preencham o formulário e d
         </div>
 
         <div>
-            <label for="rua">Rua: <span class="obrigatorio">Obrigatorio</span></label>
-            <input type="text" id="rua" name="rua" value="Quadra XX Lote XX">
+            <label for="rua">Rua: <span class="obrigatorio">Obrigatorio | exemplo: Quadra e Lote.</span></label>
+            <input type="text" id="rua" name="rua">
         </div>
 
         <div>
             <label for="bairro">Bairro: <span class="obrigatorio">Obrigatorio</span></label>
-            <input type="text" id="bairro" name="bairro" value="Vila Bela">
+            <input type="text" id="bairro" name="bairro" list="bairros">
+            <datalist id="bairros">
+            	<option value="Vila Bela"></option>
+        	</datalist>
         </div>
         
         <div>
-            <label for="cidade">Cidade: <span class="obrigatorio">Obrigatorio</span></label>
-            <input type="text" id="cidade" name="cidade" value="Serra Talhada-PE">
+            <label for="cidade">Cidade: <span class="obrigatorio">Obrigatorio</span></label>           
+            <input type="text" id="cidade" name="cidade" list="cidades">            
+            <datalist id="cidades">
+            	<option value="Serra Talhada-PE"></option>
+        	</datalist>            
         </div>
+        
+        
 
         <div>
             <label for="fone">Fone: <span class="obrigatorio">Obrigatorio</span></label>
@@ -149,12 +156,23 @@ Estamos aqui para ajudar a impulsionar sua carreira. Preencham o formulário e d
 
         <div>
             <label for="nascimento">Nascimento: <span class="obrigatorio">Obrigatorio</span></label>
-            <input type="text" id="nascimento" name="nascimento" value="XX/XX/XXXX">
+            <input type="text" id="nascimento" name="nascimento">
         </div>
 
         <div>
             <label for="estadoCivil">Estado Civil: <span class="obrigatorio">Obrigatorio</span></label>
-            <input type="text" id="estadoCivil" name="estadoCivil">
+            <input type="text" id="estadoCivil" name="estadoCivil" list="list-estadoCivil">
+            <datalist id="list-estadoCivil">
+            	<option value="Casado"></option>
+            	<option value="Casada"></option>
+            	<option value="Solteiro"></option>
+            	<option value="Solteira"></option>
+        	</datalist>
+        </div>
+
+		<div>
+            <label for="cnh">CNH: <span class="opicional">Opicional</span></label>
+            <input type="cnh" id="cnh" name="cnh">
         </div>
 
         <div>
@@ -165,26 +183,26 @@ Estamos aqui para ajudar a impulsionar sua carreira. Preencham o formulário e d
 
     <div class="coluna1">
         <div>
-            <label for="formacao">Formação:</label>
+            <label for="formacao">Formação: <span class="obrigatorio">Você pode apagar e substituir</span></label>
             <div id="formacaoContainer">
                 <input type="text" name="formacao[]" value="Ensino Médio Completo">
             </div>
-            <button type="button" onclick="addFormacao()">Adicionar Nova Formação</button>
+            <button type="button" onclick="addFormacao()">+ Adicionar Nova Formação</button>
         </div>
 
         <div>
-            <label for="experiencias">Experiência:</label>
+            <label for="experiencias">Experiência: <span class="obrigatorio">Você pode apagar e substituir</span></label>
             <div id="experienciasContainer">
                 <input type="text" name="experiencias[]" value="Serviços Gerais">
             </div>
-            <button type="button" onclick="addExperience()">Adicionar Nova Experiência</button>
+            <button type="button" onclick="addExperience()">+ Adicionar Nova Experiência</button>
         </div>
     </div>
 
     <div class="coluna1">
         <div>
             <label for="objetivos">Objetivos:</label>
-            <textarea id="objetivos" name="objetivos" rows="4">Desempenhar bem as funções a mim conferidas
+            <textarea id="objetivos" name="objetivos" rows="4" readOnly>Desempenhar bem as funções a mim conferidas
 Cumprindo com responsabilidade o meu papel
 Dentro desta empresa, visando o meu crescimento
 Profissional e pessoal, bem como o crescimento da mesma.</textarea>
@@ -192,7 +210,7 @@ Profissional e pessoal, bem como o crescimento da mesma.</textarea>
 
         <div>
             <label for="caracteristicas">Características Pessoais:</label>
-            <textarea id="caracteristicas" name="caracteristicas" rows="4">- Responsabilidade
+            <textarea id="caracteristicas" name="caracteristicas" rows="4" readOnly>- Responsabilidade
 - Comprometimento
 - Fácil aprendizado
 - Bom relacionamento
@@ -202,11 +220,11 @@ Profissional e pessoal, bem como o crescimento da mesma.</textarea>
     </div>
 
 	<button class="button3" type="button" onclick="compartilharWhatsApp()">Compartilhar no WhatsApp</button>
-    <button class="button2" type="button" onclick="copyToClipboard()">Copiar para a Área de Transferência</button>
-    <label class="label3">Aperte no botão de Compartilhar no WhatsApp que faremos o currículo, ou aperte no botão de copia e cole no WhatsApp.</label>
-
 
     <script>
+    	document.getElementById('objetivos').readOnly = true;
+    	document.getElementById('caracteristicas').readOnly = true;
+    
         function addExperience() {
             var container = document.getElementById("experienciasContainer");
             var newInput = document.createElement("input");
@@ -225,35 +243,6 @@ Profissional e pessoal, bem como o crescimento da mesma.</textarea>
             container.appendChild(newInput);
         }              
 
-function copyToClipboard() {
-    var formData = document.getElementById("myForm");
-    var data = new FormData(formData);
-
-    var textToCopy = "Nome: " + data.get('nome') + "\nDados:" +
-        (data.get('rua') ? "\nRua: " + data.get('rua') : "") +
-        (data.get('bairro') ? "\nBairro: " + data.get('bairro') : "") +
-        (data.get('cidade') ? "\nCidade: " + data.get('cidade') : "") +
-        (data.get('fone') ? "\nFone: " + data.get('fone') : "") +
-        (data.get('fone2') ? "\nFone: " + data.get('fone2') : "") +
-        (data.get('nascimento') ? "\nNascimento: " + data.get('nascimento') : "") +
-        (data.get('estadoCivil') ? "\nEstado Civil: " + data.get('estadoCivil') : "") +
-        (data.get('email') ? "\nE-MAIL: " + data.get('email') : "") +
-        "\n\nDocumentos todos em mãos!" +
-        (data.getAll('formacao[]').filter(Boolean).length > 0 ? "\n\nFormação:\n" + data.getAll('formacao[]').join('\n') : "") +
-        (data.getAll('experiencias[]').filter(Boolean).length > 0 ? "\n\nExperiência:\n" + data.getAll('experiencias[]').join('\n') : "") +
-        (data.get('objetivos') ? "\n\nObjetivos:\n" + data.get('objetivos') : "") +
-        (data.get('caracteristicas') ? "\n\nCaracterísticas Pessoais:\n" + data.get('caracteristicas') : "");
-
-    var textArea = document.createElement("textarea");
-    textArea.value = textToCopy;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-
-    alert("Texto copiado para a Área de Transferência!");
-}
-
 function compartilharWhatsApp() {
         var formData = document.getElementById("myForm");
         var data = new FormData(formData);
@@ -264,8 +253,9 @@ function compartilharWhatsApp() {
             (data.get('cidade') ? "\nCidade: " + data.get('cidade') : "") +
             (data.get('fone') ? "\nFone: " + data.get('fone') : "") +
             (data.get('fone2') ? "\nFone: " + data.get('fone2') : "") +
-            (data.get('nascimento') ? "\nNascimento: " + data.get('nascimento') : "") +
+            (data.get('nascimento') ? "\nNascimento: " + data.get('nascimento') : "") 
             (data.get('estadoCivil') ? "\nEstado Civil: " + data.get('estadoCivil') : "") +
+            (data.get('cnh') ? "\nCNH: " + data.get('cnh') : "") +
             (data.get('email') ? "\nE-MAIL: " + data.get('email') : "") +
             "\n\nDocumentos todos em mãos!" +
             (data.getAll('formacao[]').filter(Boolean).length > 0 ? "\n\nFormação:\n" + data.getAll('formacao[]').join('\n') : "") +
@@ -281,4 +271,278 @@ function compartilharWhatsApp() {
 
     </script>
 </body>
-</html>
+	</html>
+														  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <style>
+    	body {
+    		font-family: 'Segoe UI', Tahoma, Geneva,Verdana, sans-serif;
+    		margin: 20px;
+		}
+    	label {
+    		font-family: Arial, sans-serif; 
+    		margin-left: 10px;
+    		display: block;
+    		margin-bottom: 5px;
+    	}
+    	
+    	.label2 {
+    		font-family: Arial, sans-serif; 
+    		margin-left: 10px;  		
+    		margin-top: 35px;
+    		font-weight: bold;
+    		font-size: 35px;
+    	}
+    	
+    	.label3 {
+    		font-family: Arial, sans-serif;
+    		margin-top: 20px; 
+    		margin-left: 0px;
+    		white-space: pre-line;   		
+    		margin-bottom: 5px;
+    		background: #D0D0D0;
+    		color: #000;
+    		border-radius: 10px;
+    		padding:10px;
+    	}
+   
+    
+        input {
+        	
+    		width: 100%;
+    		padding: 8px;
+  		  margin-bottom: 15px;
+  		  box-sizing: border-box;
+        }
+
+        .coluna1 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .coluna1 > div {
+        width: 100%;
+    	padding: 15px;
+    	margin-bottom: 20px;
+    	background-color: #F5F5F5;
+    	border-radius: 10px;
+	}
+
+        textarea {     	
+            width: 100%;
+            height: 200px;
+            box-sizing: border-box;
+            resize: none;
+        }
+        
+        .button2, button {
+    		padding: 10px;
+    		border: none;
+    		border-radius: 5px;
+ 	   	background-color: #202020;
+   	 	color: #FFFFFF;
+ 	   	width: 100%;
+    		cursor: pointer;
+        }
+		
+		.button3 {
+			padding: 10px;
+    		border: none;
+    		border-radius: 5px;
+ 	   	background-color: #25D366;
+   	 	color: #FFFFFF;
+ 	   	width: 100%;
+    		cursor: pointer;
+    		
+		}
+         .img {
+  	      margin-left: 10px;
+  	      background-color: #fff;
+  	      border-radius: 100px;
+     	   width: 100px;
+	        height: 100px;
+        }
+	.obrigatorio {
+		color: red;
+	}
+
+	.opicional {
+		color: green;
+	}
+    </style>
+</head>
+<body>
+
+<form id="myForm">
+    <div class="coluna1">
+    
+    	<div class="coluna1">
+    		<img class="img" src="jopcs.jpeg">
+    		<label class="label2">Formulário</label> 
+    		<label style="display: block;" class="label3">Obrigado pela preferência em escolher nosso serviço de criação de currículos! Caso tenham dúvidas ou necessitem de suporte durante o preenchimento, fiquem à vontade para entrar em contato. 
+
+Estamos aqui para ajudar a impulsionar sua carreira. Preencham o formulário e deixem-nos trabalhar para destacar o melhor de vocês profissionalmente. Obrigado!
+    		
+ Contato: +55 87 8868-0008</label>
+    	</div>
+    	
+        <div>
+            <label for="name">Nome: <span class="obrigatorio">Obrigatorio</span></label>
+            <input type="text" id="name" name="nome">
+        </div>
+
+        <div>
+            <label for="rua">Rua: <span class="obrigatorio">Obrigatorio | exemplo: Quadra e Lote.</span></label>
+            <input type="text" id="rua" name="rua">
+        </div>
+
+        <div>
+            <label for="bairro">Bairro: <span class="obrigatorio">Obrigatorio</span></label>
+            <input type="text" id="bairro" name="bairro" list="bairros">
+            <datalist id="bairros">
+            	<option value="Vila Bela"></option>
+        	</datalist>
+        </div>
+        
+        <div>
+            <label for="cidade">Cidade: <span class="obrigatorio">Obrigatorio</span></label>           
+            <input type="text" id="cidade" name="cidade" list="cidades">            
+            <datalist id="cidades">
+            	<option value="Serra Talhada-PE"></option>
+        	</datalist>            
+        </div>
+        
+        
+
+        <div>
+            <label for="fone">Fone: <span class="obrigatorio">Obrigatorio</span></label>
+            <input type="text" id="fone" name="fone">
+        </div>
+        
+        <div>
+            <label for="fone2">Fone: <span class="opicional">Opicional</span></label>
+            <input type="text" id="fone2" name="fone2">
+        </div>
+
+        <div>
+            <label for="nascimento">Nascimento: <span class="obrigatorio">Obrigatorio</span></label>
+            <input type="text" id="nascimento" name="nascimento">
+        </div>
+
+        <div>
+            <label for="estadoCivil">Estado Civil: <span class="obrigatorio">Obrigatorio</span></label>
+            <input type="text" id="estadoCivil" name="estadoCivil" list="list-estadoCivil">
+            <datalist id="list-estadoCivil">
+            	<option value="Casado"></option>
+            	<option value="Casada"></option>
+            	<option value="Solteiro"></option>
+            	<option value="Solteira"></option>
+        	</datalist>
+        </div>
+
+		<div>
+            <label for="cnh">CNH: <span class="opicional">Opicional</span></label>
+            <input type="cnh" id="cnh" name="cnh">
+        </div>
+
+        <div>
+            <label for="email">E-MAIL: <span class="opicional">Opicional</span></label>
+            <input type="email" id="email" name="email">
+        </div>
+    </div>
+
+    <div class="coluna1">
+        <div>
+            <label for="formacao">Formação: <span class="obrigatorio">Você pode apagar e substituir</span></label>
+            <div id="formacaoContainer">
+                <input type="text" name="formacao[]" value="Ensino Médio Completo">
+            </div>
+            <button type="button" onclick="addFormacao()">+ Adicionar Nova Formação</button>
+        </div>
+
+        <div>
+            <label for="experiencias">Experiência: <span class="obrigatorio">Você pode apagar e substituir</span></label>
+            <div id="experienciasContainer">
+                <input type="text" name="experiencias[]" value="Serviços Gerais">
+            </div>
+            <button type="button" onclick="addExperience()">+ Adicionar Nova Experiência</button>
+        </div>
+    </div>
+
+    <div class="coluna1">
+        <div>
+            <label for="objetivos">Objetivos:</label>
+            <textarea id="objetivos" name="objetivos" rows="4" readOnly>Desempenhar bem as funções a mim conferidas
+Cumprindo com responsabilidade o meu papel
+Dentro desta empresa, visando o meu crescimento
+Profissional e pessoal, bem como o crescimento da mesma.</textarea>
+        </div>
+
+        <div>
+            <label for="caracteristicas">Características Pessoais:</label>
+            <textarea id="caracteristicas" name="caracteristicas" rows="4" readOnly>- Responsabilidade
+- Comprometimento
+- Fácil aprendizado
+- Bom relacionamento
+- Espirito de equipe
+- Proatividade</textarea>
+        </div>
+    </div>
+
+	<button class="button3" type="button" onclick="compartilharWhatsApp()">Compartilhar no WhatsApp</button>
+
+    <script>
+    	document.getElementById('objetivos').readOnly = true;
+    	document.getElementById('caracteristicas').readOnly = true;
+    
+        function addExperience() {
+            var container = document.getElementById("experienciasContainer");
+            var newInput = document.createElement("input");
+            newInput.type = "text";
+            newInput.name = "experiencias[]";
+            newInput.value = "Empresa: XXX Cargo: XXX Período: XXX";
+            container.appendChild(newInput);
+        }
+
+        function addFormacao() {
+            var container = document.getElementById("formacaoContainer");
+            var newInput = document.createElement("input");
+            newInput.type = "text";
+            newInput.name = "formacao[]";
+            newInput.value = "Curso: ";
+            container.appendChild(newInput);
+        }              
+
+function compartilharWhatsApp() {
+        var formData = document.getElementById("myForm");
+        var data = new FormData(formData);
+
+        var mensagemWhatsApp = "Nome: " + data.get('nome') + "\nDados:" +
+            (data.get('rua') ? "\nRua: " + data.get('rua') : "") +
+            (data.get('bairro') ? "\nBairro: " + data.get('bairro') : "") +
+            (data.get('cidade') ? "\nCidade: " + data.get('cidade') : "") +
+            (data.get('fone') ? "\nFone: " + data.get('fone') : "") +
+            (data.get('fone2') ? "\nFone: " + data.get('fone2') : "") +
+            (data.get('nascimento') ? "\nNascimento: " + data.get('nascimento') : "") 
+            (data.get('estadoCivil') ? "\nEstado Civil: " + data.get('estadoCivil') : "") +
+            (data.get('cnh') ? "\nCNH: " + data.get('cnh') : "") +
+            (data.get('email') ? "\nE-MAIL: " + data.get('email') : "") +
+            "\n\nDocumentos todos em mãos!" +
+            (data.getAll('formacao[]').filter(Boolean).length > 0 ? "\n\nFormação:\n" + data.getAll('formacao[]').join('\n') : "") +
+            (data.getAll('experiencias[]').filter(Boolean).length > 0 ? "\n\nExperiência:\n" + data.getAll('experiencias[]').join('\n') : "") +
+            (data.get('objetivos') ? "\n\nObjetivos:\n" + data.get('objetivos') : "") +
+            (data.get('caracteristicas') ? "\n\nCaracterísticas Pessoais:\n" + data.get('caracteristicas') : "");
+
+        var mensagemEncoded = encodeURIComponent(mensagemWhatsApp);
+        var linkWhatsApp = "https://wa.me/+55 87 8868-0008?text=" + mensagemEncoded;
+
+        window.open(linkWhatsApp, '_blank');
+    }
+
+    </script>
+</body>
+	</html>
