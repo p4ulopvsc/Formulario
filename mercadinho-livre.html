@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og: image" content="https://mercadinho-livre.netlify.app/mercadinho-livre.html/jopcs.jpeg" />
     <title>Formulário</title>
     <style>
     	body {
@@ -183,17 +182,24 @@ Estamos aqui para ajudar a impulsionar sua carreira. Preencham o formulário e d
 
     <div class="coluna1">
         <div>
-            <label for="formacao">Formação: <span class="obrigatorio">Você pode apagar e substituir</span></label>
+            <label for="formacao">Formação: (Você pode apagar e substituir)</label>
             <div id="formacaoContainer">
-                <input type="text" name="formacao[]" value="Ensino Médio Completo">
+                <input type="text" name="formacao[]" value="Ensino Médio Completo" list="list-formacao">
+		<datalist id="list-formacao">
+            	<option value="Ensino Médio Completo"></option>
+            	<option value="Ensino Médio Incompleto"></option>
+        	</datalist>
             </div>
             <button type="button" onclick="addFormacao()">+ Adicionar Nova Formação</button>
         </div>
 
         <div>
-            <label for="experiencias">Experiência: <span class="obrigatorio">Você pode apagar e substituir</span></label>
+            <label for="experiencias">Experiência: (Você pode apagar e substituir)</label>
             <div id="experienciasContainer">
-                <input type="text" name="experiencias[]" value="Serviços Gerais">
+                <input type="text" name="experiencias[]" value="Serviços Gerais" list="list-experiencia">
+		<datalist id="list-experiencia">
+            	<option value="Serviços Gerais"></option>
+        	</datalist>
             </div>
             <button type="button" onclick="addExperience()">+ Adicionar Nova Experiência</button>
         </div>
